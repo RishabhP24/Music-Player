@@ -1,14 +1,18 @@
+# system imports
 import os
-import pygame
 from mutagen.id3 import ID3
-from pygame import mixer
-
-from tkinter import *
-from tkinter.ttk import *
-
-from tkinter.filedialog import askdirectory
 import random
 
+# pygame imports
+import pygame
+from pygame import mixer
+
+# tkinter imports
+from tkinter import *
+from tkinter.ttk import 
+from tkinter.filedialog import askdirectory
+
+# initialization
 root = Tk()
 root.geometry('400x400+200+50')
 root.title("Music Place")
