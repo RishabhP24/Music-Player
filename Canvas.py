@@ -99,6 +99,9 @@ def updatelabel(loc=None):
         loc : int, index location of the present song playing
     """
     global index
+    
+    # if loc is passed then play song at that index
+    # otherwise
     if loc is not None:
         v.set(listofsongs[loc])
     else:
