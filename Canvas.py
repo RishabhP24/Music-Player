@@ -15,7 +15,7 @@ from tkinter.filedialog import askdirectory
 # initialization
 root = Tk()
 root.geometry('400x400+200+50')
-root.title("Music Place")
+root.title("Music Player")
 root.iconbitmap("player.ico")
 root.resizable(False,False)
 
