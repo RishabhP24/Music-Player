@@ -30,8 +30,6 @@ songlabel = Label(root, textvariable=v, width=50)
 
 
 
-w= Scale(from_=0, to=100)
-w.pack()
 
 def playsong(event):
     """
