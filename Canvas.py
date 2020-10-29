@@ -1,14 +1,18 @@
+# system imports
 import os
-import pygame
 from mutagen.id3 import ID3
-from pygame import mixer
-
-from tkinter import *
-from tkinter.ttk import *
-
-from tkinter.filedialog import askdirectory
 import random
 
+# pygame imports
+import pygame
+from pygame import mixer
+
+# tkinter imports
+from tkinter import *
+from tkinter.ttk import 
+from tkinter.filedialog import askdirectory
+
+# initialization
 root = Tk()
 root.geometry('400x400+200+50')
 root.title("Music Place")
@@ -30,6 +34,11 @@ w= Scale(from_=0, to=100)
 w.pack()
 
 def playsong(event):
+    """
+    plays song
+    @param:
+        event : pygame event object
+    """
     pygame.mixer.music.play()
     pygame.mixer.unpause()
 
@@ -37,6 +46,11 @@ def playsong(event):
 
 
 def nextsong(event):
+    """
+    plays next song
+    @param:
+        event : pygame event object
+    """
     global index
     index += 1
     pygame.mixer.music.load(listofsongs[index])
@@ -44,6 +58,11 @@ def nextsong(event):
     updatelabel()
 
 def prevsong(event):
+    """
+    plays prev song
+    @param:
+        event : pygame event object
+    """
     global index
     index -= 1
     pygame.mixer.music.load(listofsongs[index])
@@ -51,6 +70,11 @@ def prevsong(event):
     updatelabel()
 
 def randomsong(event):
+    """
+    plays random song
+    @param:
+        event : pygame event object
+    """
 
     x = random.randint(0, len(listofsongs))
     pygame.mixer.music.load(listofsongs[x])
@@ -60,11 +84,24 @@ def randomsong(event):
 
 
 def stopsong(event):
+    """
+    stops song
+    @param:
+        event : pygame event object
+    """
     pygame.mixer.music.stop()
     v.set("")
 
 def updatelabel(loc=None):
+    """
+    update's label to present songs name
+    @param:
+        loc : int, index location of the present song playing
+    """
     global index
+    
+    # if loc is passed then play song at that index
+    # otherwise
     if loc is not None:
         v.set(listofsongs[loc])
     else:
@@ -72,6 +109,9 @@ def updatelabel(loc=None):
 
 
 def directorychooser():
+    """
+    function to choose the directory containing the songs
+    """
     directory = askdirectory()
     os.chdir(directory)
 
